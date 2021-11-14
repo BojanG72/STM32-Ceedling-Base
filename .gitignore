@@ -1,3 +1,6 @@
 # Folders to ignore
 .vscode/
 build/
+
+# Exclude Object Files
+*.o
