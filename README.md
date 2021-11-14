@@ -37,23 +37,25 @@ This project has a couple dependencies that are required before you can build an
 2) GCC compiler for your host machine       ---> [Here](https://gcc.gnu.org/install/binaries.html)
 3) GCC compiler for your target             ---> [Here](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
 
-<!-- *You might have noticed the **Back to top** button(if not, please notice, it's right there!). This is a good idea because it makes your README **easy to navigate.*** 
+Make sure you install the correct toolchain for your setup. The toolchains will vary depending on if your host machine is running linux or windows. The target compiler I listed here is for ARM MCUs, if your MCU is not ARM based then you will need to find the correct compiler for your MCU and modify the .yml file to use that compiler instead.
 
-The first one should be how to install(how to generally use your project or set-up for editing in their machine).
+Finally, make sure that you update your environment variables so that you can access these tools from anywhere in your host system. A simple way to check if they were installed correctly is to check for the version of each tools from the terminal
 
-This should give the users a concrete idea with instructions on how they can use your project repo with all the steps.
+```
+ceedling version
+```
+```
+gcc --version
+```
+```
+arm-none-eabi-gcc --version
+```
 
-Following this steps, **they should be able to run this in their device.**
+Once you have all the dependancies installed, you can now clone this repo and try to build and test the project.
 
-A method I use is after completing the README, I go through the instructions from scratch and check if it is working. -->
-
-<!-- Here is a sample instruction:
-
-To use this project, first clone the repo on your device using the command below:
-
-```git init```
-
-```git clone https://github.com/navendu-pottekkat/nsfw-filter.git``` -->
+```
+git clone https://github.com/BojanG72/STM32-Ceedling-Base.git
+```
 
 # Usage
 [(Back to top)](#table-of-contents)
