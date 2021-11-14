@@ -5,123 +5,82 @@
 ![GitHub](https://img.shields.io/github/last-commit/bojang72/stm32-ceedling-base)
 ![GitHub](https://img.shields.io/github/license/bojang72/STM32-Ceedling-Base)
 
-I created this project as a starting point for anyone who is looking to create production quality firmware for an embedded system running an STM32
+I created this project as a starting point for anyone looking to create production quality firmware for an embedded system running an STM32
 microcontroller. This project makes use of the [ceedling](http://www.throwtheswitch.org/ceedling) build system. I chose to centre this project
-around ceedling because in order for any software to be production quality it must contain unit tests. I found ceedling to be the easiest build system
-to use that incorporates unit testing specifically for firmware design.
+around ceedling, because for software to be production quality it must contain unit tests. I found ceedling to be the easiest build system 
+that incorporates unit testing for firmware development.
 
-# Demo-Preview
+This project is currently setup to compile for the STM32L496AG MCU, becuase I happen to have a dev kit with that processor. I included both the CMSIS, and
+HAL libraries for the MCU. If you would like to compile for a different MCU, you would need to replace the libraries in the lib folder as well as the startup code and linker script. The startup file and linker script is located in the startup folder.
 
-<!-- Add a demo for your project -->
-
-<!-- After you have written about your project, it is a good idea to have a demo/preview(**video/gif/screenshots** are good options) of your project so that people can know what to expect in your project. You could also add the demo in the previous section with the product description.
-
-Here is a random GIF as a placeholder.
-
-![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif) -->
+The ceedling project.yml file has been setup to compile for a cortex M4 processor when then release command is run, and will compile with whatever the default GCC compiler is
+installed on your host machine when the test command is run. 
 
 # Table of contents
 
-<!-- After you have introduced your project, it is a good idea to add a **Table of contents** or **TOC** as **cool** people say it. This would make it easier for people to navigate through your README and find exactly what they are looking for.
-
-Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README. -->
-
 - [Project Title](#project-title)
-- [Demo-Preview](#demo-preview)
 - [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Development](#development)
-- [Contribute](#contribute)
-    - [Sponsor](#sponsor)
-    - [Adding new features or fixing bugs](#adding-new-features-or-fixing-bugs)
 - [License](#license)
 - [Footer](#footer)
 
 # Installation
 [(Back to top)](#table-of-contents)
 
-<!-- *You might have noticed the **Back to top** button(if not, please notice, it's right there!). This is a good idea because it makes your README **easy to navigate.*** 
+This project has a couple dependencies that are required before you can build and run the tests.
+1) The Ceedling build system                ---> [Here](http://www.throwtheswitch.org/ceedling)
+2) GCC compiler for your host machine       ---> [Here](https://gcc.gnu.org/install/binaries.html)
+3) GCC compiler for your target             ---> [Here](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
 
-The first one should be how to install(how to generally use your project or set-up for editing in their machine).
+Make sure you install the correct toolchain for your setup. The toolchains will vary depending on if your host machine is running linux or windows. The target compiler I listed here is for ARM MCUs, if your MCU is not ARM based then you will need to find the correct compiler for your MCU and modify the .yml file to use that compiler instead.
 
-This should give the users a concrete idea with instructions on how they can use your project repo with all the steps.
+Finally, make sure that you update your environment variables so that you can access these tools from anywhere in your host system. A simple way to check if they were installed correctly is to check for the version of each tools from the terminal
 
-Following this steps, **they should be able to run this in their device.**
+```
+ceedling version
+```
+```
+gcc --version
+```
+```
+arm-none-eabi-gcc --version
+```
 
-A method I use is after completing the README, I go through the instructions from scratch and check if it is working. -->
+Once you have all the dependancies installed, you can now clone this repo and try to build and test the project.
 
-<!-- Here is a sample instruction:
-
-To use this project, first clone the repo on your device using the command below:
-
-```git init```
-
-```git clone https://github.com/navendu-pottekkat/nsfw-filter.git``` -->
+```
+git clone https://github.com/BojanG72/STM32-Ceedling-Base.git
+```
 
 # Usage
 [(Back to top)](#table-of-contents)
 
-<!-- This is optional and it is used to give the user info on how to use the project after installation. This could be added in the Installation section also. -->
+To compile and run the unit tests on your host machine, navigate to the project folder and run the following command
+```
+ceedling test:all
+```
+To compile and build the binaries for the taget machine, run the following command
+```
+ceedling release
+```
+I like to run the following command for building the binaries and running all tests
+```
+ceedling verbosity[5] clobber test:all release
+```
+the verbosity command enables ceedling to print out all the traces generated by the compiler, which is very useful for debugging. The clobber command will remove all
+the previous artifacts generated by the compiler. This allows for a clean build each time. The release command will build the release binaries and the test:all command will run the unit tests.
 
-# Development
-[(Back to top)](#table-of-contents)
-
-<!-- This is the place where you give instructions to developers on how to modify the code.
-
-You could give **instructions in depth** of **how the code works** and how everything is put together.
-
-You could also give specific instructions to how they can setup their development environment.
-
-Ideally, you should keep the README simple. If you need to add more complex explanations, use a wiki. Check out [this wiki](https://github.com/navendu-pottekkat/nsfw-filter/wiki) for inspiration. -->
-
-# Contribute
-[(Back to top)](#table-of-contents)
-
-<!-- This is where you can let people know how they can **contribute** to your project. Some of the ways are given below.
-
-Also this shows how you can add subsections within a section. -->
-
-### Sponsor
-[(Back to top)](#table-of-contents)
-
-<!-- Your project is gaining traction and it is being used by thousands of people(***with this README there will be even more***). Now it would be a good time to look for people or organisations to sponsor your project. This could be because you are not generating any revenue from your project and you require money for keeping the project alive.
-
-You could add how people can sponsor your project in this section. Add your patreon or GitHub sponsor link here for easy access.
-
-A good idea is to also display the sponsors with their organisation logos or badges to show them your love!(*Someday I will get a sponsor and I can show my love*) -->
-
-### Adding new features or fixing bugs
-[(Back to top)](#table-of-contents)
-
-<!-- This is to give people an idea how they can raise issues or feature requests in your projects. 
-
-You could also give guidelines for submitting and issue or a pull request to your project.
-
-Personally and by standard, you should use a [issue template](https://github.com/navendu-pottekkat/nsfw-filter/blob/master/ISSUE_TEMPLATE.md) and a [pull request template](https://github.com/navendu-pottekkat/nsfw-filter/blob/master/PULL_REQ_TEMPLATE.md)(click for examples) so that when a user opens a new issue they could easily format it as per your project guidelines.
-
-You could also add contact details for people to get in touch with you regarding your project. -->
+Depending on which editor or IDE you choose to use, you can create a hotkey to run this command at the push of a button. And additioanlly because it can be run from the command line, this can be easily incorporated into whatever CI/CD pipeline you decide to use. If you do not have a CI/CD pipeline setup, I would highly recommend it for production level firmware.
 
 # License
 [(Back to top)](#table-of-contents)
 
-<!-- Adding the license to README is a good practice so that people can easily refer to it.
-
-Make sure you have added a LICENSE file in your project folder. **Shortcut:** Click add new file in your root of your repo in GitHub > Set file name to LICENSE > GitHub shows LICENSE templates > Choose the one that best suits your project!
-
-I personally add the name of the license and provide a link to it like below. -->
-
-[GNU General Public License version 3](https://opensource.org/licenses/GPL-3.0)
+[MIT License](https://github.com/BojanG72/STM32-Ceedling-Base/blob/main/LICENSE)
 
 # Footer
 [(Back to top)](#table-of-contents)
 
-<!-- Let's also add a footer because I love footers and also you **can** use this to convey important info.
-
-Let's make it an image because by now you have realised that multimedia in images == cool(*please notice the subtle programming joke). -->
-
-Leave a star in GitHub, give a clap in Medium and share this guide if you found this helpful.
-
-<!-- Add the footer here -->
+Leave a star in GitHub, and share this repo if you found it helpful.
 
 <!-- ![Footer](https://github.com/navendu-pottekkat/awesome-readme/blob/master/fooooooter.png) -->
