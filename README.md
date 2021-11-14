@@ -83,4 +83,5 @@ Depending on which editor or IDE you choose to use, you can create a hotkey to r
 
 Leave a star in GitHub, and share this repo if you found it helpful.
 
-<!-- ![Footer](https://github.com/navendu-pottekkat/awesome-readme/blob/master/fooooooter.png) -->
+
+![Footer](https://github.com/BojanG72/STM32-Ceedling-Base/blob/main/footer.png)
