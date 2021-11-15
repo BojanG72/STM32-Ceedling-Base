@@ -13,7 +13,7 @@ that incorporates unit testing for firmware development.
 This project is currently setup to compile for the STM32L496AG MCU, becuase I happen to have a dev kit with that processor. I included both the CMSIS, and
 HAL libraries for the MCU. If you would like to compile for a different MCU, you would need to replace the libraries in the lib folder as well as the startup code and linker script. The startup file and linker script is located in the startup folder.
 
-The ceedling project.yml file has been setup to compile for a cortex M4 processor when then release command is run, and will compile with whatever the default GCC compiler is
+The ceedling project.yml file has been setup to compile for a cortex M4 processor when the release command is run, and will compile with whatever the default GCC compiler is
 installed on your host machine when the test command is run. 
 
 # Table of contents
