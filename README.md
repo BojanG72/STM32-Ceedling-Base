@@ -47,7 +47,7 @@ gcc --version
 arm-none-eabi-gcc --version
 ```
 
-Once you have all the dependancies installed, you can now clone this repo and try to build and test the project.
+Once you have all the dependancies installed, you can then clone this repo and try to build and test the project.
 
 ```
 git clone https://github.com/BojanG72/STM32-Ceedling-Base.git
