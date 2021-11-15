@@ -1,9 +1,7 @@
 ---
 
 # Notes:
-# Sample project C code is not presently written to produce a release artifact.
-# As such, release build options are disabled.
-# This sample, therefore, only demonstrates running a collection of unit tests.
+# This example project is setup to build release binaries for an ARM cortex M4 processor
 
 :project:
   :use_exceptions: FALSE
@@ -128,16 +126,12 @@
       - -mthumb
       - -mfpu=fpv4-sp-d16 
       - -mfloat-abi=hard
+      - -Wl,-Map="stmBase.map"
       - -g
       - -Wall
       - -Os
       - -c
       - -o ${2}
-
-
-# Ceedling defaults to using gcc for compiling, linking, etc.
-# As [:tools] is blank, gcc will be used (so long as it's in your system path)
-# See documentation to configure a given toolchain for use
 
 # LIBRARIES
 # These libraries are automatically injected into the build process. Those specified as
@@ -150,7 +144,6 @@
   :system: []    # for example, you might list 'm' to grab the math library
   :test: []
   :release: []
-
 
 :plugins:
   :load_paths:

@@ -4,3 +4,4 @@ build/
 
 # Exclude Object Files
 *.o
+*.map
