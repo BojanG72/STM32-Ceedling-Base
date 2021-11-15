@@ -35,7 +35,7 @@ This project has a couple dependencies that are required before you can build an
 
 Make sure you install the correct toolchain for your setup. The toolchains will vary depending on if your host machine is running linux or windows. The target compiler I listed here is for ARM MCUs, if your MCU is not ARM based then you will need to find the correct compiler for your MCU and modify the .yml file to use that compiler instead.
 
-Finally, make sure that you update your environment variables so that you can access these tools from anywhere in your host system. A simple way to check if they were installed correctly is to check for the version of each tools from the terminal
+Finally, make sure that you update your environment variables so that you can access these tools from anywhere in your host system. A simple way to check if they were installed correctly is to check the version for each of the tools from the terminal
 
 ```
 ceedling version
