@@ -112,6 +112,7 @@
       - -mthumb
       - -mfpu=fpv4-sp-d16 
       - -mfloat-abi=hard
+      - -Wl,-Map="stmBase.map"
       - -g
       - -T"startup/STM32L496AGIX_FLASH.ld"
       - --specs=nosys.specs
@@ -126,7 +127,6 @@
       - -mthumb
       - -mfpu=fpv4-sp-d16 
       - -mfloat-abi=hard
-      - -Wl,-Map="stmBase.map"
       - -g
       - -Wall
       - -Os
