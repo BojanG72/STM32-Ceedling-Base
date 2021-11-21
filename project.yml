@@ -44,7 +44,12 @@
     - lib/CMSIS/Include/**
     - lib/STM32L4xx_HAL_Driver/Inc/**
     - lib/STM32L4xx_HAL_Driver/Inc/Legacy/**
-    - src/bsp/
+    - lib/FreeRTOS/Source/CMSIS_RTOS_V2/**
+    - lib/FreeRTOS/Source/include/**
+    - lib/FreeRTOS/Source/portable/GCC/**
+    - src/bsp/**
+    - src/bsp/rtos/**
+    - src/bsp/stm32/**
   :support:
     - test/support
 
@@ -89,13 +94,14 @@
     :executable: arm-none-eabi-gcc             #exists in system search path
     :arguments:
       - ${1}
-      - -DTARGET
+      - -DSTM32
       - -mcpu=cortex-m4
       - -mthumb
       - -mfpu=fpv4-sp-d16 
       - -mfloat-abi=hard
       - -g
       - -Isrc/
+      - -Isrc/app/shell
       - -I"$": COLLECTION_PATHS_RELEASE_TOOLCHAIN_INCLUDE 
       - -Wall
       - -Os
@@ -105,8 +111,9 @@
     :executable: arm-none-eabi-gcc
     :arguments:
       - ${1}
-      - -DTARGET
+      - -DSTM32
       - -Isrc/
+      - -Isrc/app/shell
       - -I"$": COLLECTION_PATHS_RELEASE_TOOLCHAIN_INCLUDE 
       - -mcpu=cortex-m4
       - -mthumb
@@ -121,7 +128,7 @@
     :executable: arm-none-eabi-gcc
     :arguments:
       - ${1}
-      - -DTARGET
+      - -DSTM32
       - -I"$": COLLECTION_PATHS_RELEASE_TOOLCHAIN_INCLUDE 
       - -mcpu=cortex-m4
       - -mthumb
