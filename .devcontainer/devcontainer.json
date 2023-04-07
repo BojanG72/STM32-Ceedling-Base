@@ -1,0 +1,9 @@
+{
+	"name": "My Development Container",
+	"dockerFile": "Dockerfile",
+	"runArgs": [
+	  "--privileged",
+	  "-v", "/dev/bus/usb:/dev/bus/usb"
+	]
+}
+  

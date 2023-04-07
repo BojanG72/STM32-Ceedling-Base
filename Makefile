@@ -20,8 +20,8 @@ all:
 # Remove all the build artifacts
 .PHONY: clean
 clean:
-	ceedling clobber
-	rm stmBase.map
+	@ceedling clobber
+	@rm -f stmBase.map
 
 # Run all unit tests and build release image
 .PHONY: release
