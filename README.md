@@ -22,6 +22,7 @@ installed on your host machine when the test command is run.
 - [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Dev Container](#dev-container)
 - [License](#license)
 - [Footer](#footer)
 
@@ -76,7 +77,7 @@ Depending on which editor or IDE you choose to use, you can create a hotkey to r
 # Dev Container
 [(Back to top)](#table-of-contents)
 
-It is also possible to compile and run the unit tests inside of a docker container. The project now contains a Dockerfile that can be used to create a docker image running ubuntu and all of the tools required for building and testing. Additionally, that dockerfile can be used with the [vscode dev container extension](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container).
+It is also possible to compile and run the unit tests inside of a docker container. The project now contains a Dockerfile that can be used to create a docker image running ubuntu and all of the tools required for building and testing. Additionally, that dockerfile can be used with the [vscode dev container extension](https://code.visualstudio.com/docs/devcontainers/containers).
 
 This extention give vscode hooks into the container, and allows you to use the container as a dev environment.
 
