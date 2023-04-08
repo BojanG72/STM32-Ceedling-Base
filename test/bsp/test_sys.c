@@ -18,9 +18,5 @@ void test_sys_NeedToImplement(void)
     TEST_IGNORE_MESSAGE("Need to Implement sys");
 }
 
-void test_sys_forceFailure(void)
-{
-    TEST_ASSERT_EQUAL(2,1);
-}
 
 #endif // TEST
