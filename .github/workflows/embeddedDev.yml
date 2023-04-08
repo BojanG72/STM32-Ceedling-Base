@@ -23,5 +23,5 @@ jobs:
       run: gem install ceedling
 
     - name: Run test
-      run: sudo ceedling test:all
+      run: ceedling test:all
 
