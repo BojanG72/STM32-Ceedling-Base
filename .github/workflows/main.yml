@@ -31,7 +31,7 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: my-artifacts
+        name: release
         path: |
           build/release/stmBase.elf
 
