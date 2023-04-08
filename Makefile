@@ -37,3 +37,16 @@ test:
 .PHONY: build
 fw_stm32:
 	ceedling release
+
+# Install dependancies on new Linux system
+.PHONY: install-dependancies
+install-dependancies:
+	apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    build-essential \
+    gcc-arm-none-eabi \
+    git \
+    ruby \
+    ruby-dev \
+    make \
+    && rm -rf /var/lib/apt/lists/*

@@ -1,21 +1,28 @@
-name: Embedded Dev Workflow
+name: Makefile CI
 
 on:
-  push:
-    branches:
-      - '*'
+  push
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
-    - name: Run Ceedling test in container
-      uses: docker://docker.io/bojangav/embeddeddev:latest
-      with:
-        entrypoint: /bin/bash
-        args: |
-          -c "ceedling test:all"
+    - name: configure
+      run: ./configure
+
+    - name: Install dependencies
+      run: make install-dependancies
+    
+    - name: Install Ceedling
+      run: gem install ceedling
+
+    - name: Run clean
+      run: make clean
+
+    - name: Run test
+      run: make test
+
