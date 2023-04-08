@@ -1,6 +1,9 @@
 name: Embedded Dev Wrokflow
 
-on: push
+on:
+  push:
+    branches:
+      - '*'
 
 jobs:
   build:
