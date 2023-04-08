@@ -1,0 +1,18 @@
+name: Embedded Dev Wrokflow
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Ceedling test in container
+      uses: docker://docker.io/bojangav/embeddeddev:latest
+      with:
+        entrypoint: /bin/bash
+        args: |
+          -c "ceedling test:all"
