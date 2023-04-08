@@ -1,4 +1,4 @@
-name: Embedded Dev Wrokflow
+name: Embedded Dev Workflow
 
 on:
   push:
