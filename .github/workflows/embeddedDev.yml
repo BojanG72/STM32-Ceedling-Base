@@ -22,9 +22,6 @@ jobs:
     - name: Install Ceedling
       run: gem install ceedling
 
-    - name: Run clean
-      run: make clean
-
     - name: Run test
-      run: make test
+      run: ceedling test:all
 
