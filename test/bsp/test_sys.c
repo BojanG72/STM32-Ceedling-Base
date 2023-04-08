@@ -1,6 +1,7 @@
 #ifdef TEST
 
 #include "unity.h"
+#include "stdbool.h"
 
 #include "sys.h"
 
@@ -16,5 +17,6 @@ void test_sys_NeedToImplement(void)
 {
     TEST_IGNORE_MESSAGE("Need to Implement sys");
 }
+
 
 #endif // TEST
