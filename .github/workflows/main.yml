@@ -1,4 +1,4 @@
-name: Makefile CI
+name: CI Pipeline
 
 on:
   push
@@ -24,4 +24,7 @@ jobs:
 
     - name: Run test
       run: ceedling test:all
+
+    - name: Build Release
+      run: ceedling release 
 
