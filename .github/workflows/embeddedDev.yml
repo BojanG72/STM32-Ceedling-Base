@@ -11,11 +11,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: make install-dependancies
-    
-    - name: Install Ceedling
-      run: gem install ceedling
+    - name: Install Arm GCC
+      run: sudo apt-get update && sudo apt-get install -y gcc-arm-none-eabi
+
+    - name: Install Ruby and Ceedling
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ruby-full
+        gem install ceedling
 
     - name: Run clean
       run: make clean
