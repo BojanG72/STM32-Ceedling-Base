@@ -23,5 +23,7 @@ jobs:
       run: gem install ceedling
 
     - name: Run test
-      run: ceedling test:all
+      run: |
+        cd STM32-Ceedling-Base
+        ceedling test:all
 
